@@ -16,7 +16,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb+srv://vedang_admin:Vedangmh%40123@diarycluster.r85rx.mongodb.net/diaryDB", {useNewUrlParser : true});
+mongoose.connect("mongodb+srv://vedang_admin:Vedangmh%4015@diarycluster.r85rx.mongodb.net/diaryDB", {useNewUrlParser : true});
 
 const blogSchema = new mongoose.Schema({
   currdate : String,
