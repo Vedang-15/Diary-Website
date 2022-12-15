@@ -14,6 +14,7 @@
 
 <% for(let i = 0; i< postArray.length; i++){ %>
   <h1 class = "title"><%= postArray[i].title %></h1>
+  <h1><%= postArray[i].name %></h1>
   <p class="dateClass"><%= postArray[i].currdate %></p>
   <% if(postArray[i].content.length <= 100 ){ %>
     <p><%= postArray[i].content %></p>

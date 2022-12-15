@@ -16,12 +16,13 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb+srv://vedang_admin:Vedangmh%4015@diarycluster.r85rx.mongodb.net/diaryDB", {useNewUrlParser : true});
+mongoose.connect("mongodb+srv://admin-vedanghatekar:Vedangmh15@cluster0.feij1io.mongodb.net/diaryDB", {useNewUrlParser : true});
 
 const blogSchema = new mongoose.Schema({
   currdate : String,
   title : String,
-  content: String
+  content: String,
+  name: String
 });
 
 const Blog = mongoose.model("Blog", blogSchema);
@@ -68,7 +69,8 @@ app.post("/compose", function(req, res){
   let post = new Blog({
     currdate : day,
     title : req.body.PostTitle,
-    content : req.body.PostDescrip
+    content : req.body.PostDescrip,
+    name : req.body.PostName
   })
   post.save(function(err){
     if(!err){
