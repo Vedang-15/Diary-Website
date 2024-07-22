@@ -19,6 +19,7 @@ app.use(express.static("public"));
 mongoose.connect("mongodb+srv://admin-vedanghatekar:Vedangmh15@cluster0.feij1io.mongodb.net/diaryDB", {useNewUrlParser : true});
 
 const blogSchema = new mongoose.Schema({
+  currtime : String,
   currdate : String,
   title : String,
   content: String,
@@ -66,12 +67,15 @@ app.get("/entries/:topic", function(req, res){
 
 app.post("/compose", function(req, res){
   const day = date.getDate();
+  var today = new Date();
+  const time = today.toLocaleTimeString();
   let post = new Blog({
+    currtime : time,
     currdate : day,
     title : req.body.PostTitle,
     content : req.body.PostDescrip,
     name : req.body.PostName
-  })
+  });
   post.save(function(err){
     if(!err){
       res.redirect("/");
